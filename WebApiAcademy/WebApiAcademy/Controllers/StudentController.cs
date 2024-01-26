@@ -79,6 +79,8 @@ namespace WebApiAcademy.Controllers
                     CardId = data.CardId,
                     Phone = data.Phone,
                 };
+                Person personExist = await _personService.GetByCardId(data.CardId);
+                if(personExist != null) return BadRequest(new { message = "Documento ya existe" });
                 Rol rol= await _rolService.GetByName("Estudiante");
                 User user = new()
                 {
@@ -88,6 +90,8 @@ namespace WebApiAcademy.Controllers
                     PersonId = person.Id,
                     RolId    = rol.Id
                 };
+                User userExist = await _userService.GetByEmail(data.Email);
+                if(userExist != null) return BadRequest(new { message = "Email ya existe" });
                 await _personService.Save(person);
                 await _userService.Save(user);
                 return Ok(new { message = "Estudiante creado correctamente" });

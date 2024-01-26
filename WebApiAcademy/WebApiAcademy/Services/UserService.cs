@@ -13,11 +13,11 @@ namespace WebApiAcademy.Services
             _context = context;
         }
 
-        public User? GetByEmail(string email)
+        public Task<User> GetByEmail(string email)
         {
             var user = _context.Users
                         .Include(u => u.Person)
-                        .FirstOrDefault(u => u.Email == email);
+                        .FirstOrDefaultAsync(u => u.Email == email);
             return user;
         }
         public Task<User> GetByPersonId(Guid personId)
@@ -58,7 +58,7 @@ namespace WebApiAcademy.Services
     }
     public interface IUserService
     {
-        User? GetByEmail(string email);
+        Task<User> GetByEmail(string email);
         Task<User> GetByPersonId(Guid personId);
         Task Save(User user);
         Task Update(User user);

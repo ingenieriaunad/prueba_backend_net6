@@ -1,4 +1,5 @@
-﻿using WebApiAcademy.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApiAcademy.Models;
 
 namespace WebApiAcademy.Services
 {
@@ -38,6 +39,11 @@ namespace WebApiAcademy.Services
             _context.Persons.Remove(person);
             await _context.SaveChangesAsync();
         }
+        public async Task<Person> GetByCardId(string cardId)
+        {
+            var person = await _context.Persons.FirstOrDefaultAsync(x => x.CardId == cardId);
+            return person;
+        }
     }
     public interface IPersonService
     {
@@ -45,6 +51,7 @@ namespace WebApiAcademy.Services
         Task<Person> GetById(Guid id);
         Task Update(Person person);
         Task Delete(Guid id);
+        Task<Person> GetByCardId(string cardId);
 
     }
 }
