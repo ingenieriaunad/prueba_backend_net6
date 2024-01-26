@@ -8,5 +8,6 @@
         public string LastName { get; set; }
         public string Phone { get; set; }
         public List<User> Users { get; set; }
+        public List<Score> Scores { get; set; }
     }
 }

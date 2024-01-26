@@ -1,0 +1,876 @@
+{
+	"info": {
+		"_postman_id": "1a422c44-3706-485b-bbbf-ca41744fb5c2",
+		"name": "Prueba tecnica C# Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25879865"
+	},
+	"item": [
+		{
+			"name": "Estudiante",
+			"item": [
+				{
+					"name": "Lista de estudiantes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Student?page=1&perPage=10&search=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Student"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "perPage",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Busquedas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Student?page=1&perPage=10&search=Luis",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Student"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": "Luis"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 20:13:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalPages\": 1,\n    \"totalRecords\": 1,\n    \"items\": [\n        {\n            \"id\": \"7eaadf2e-ada5-4d97-81e4-0924329662ca\",\n            \"personId\": \"beaf5232-ce17-49c8-91dc-381d27fe67ca\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"luis@gmail.com\",\n            \"name\": \"Luis\",\n            \"lastName\": \"González \",\n            \"phone\": \"3126547891\",\n            \"cardId\": \"123456782\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Lista de estudiantes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Student?page=1&perPage=10&search=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Student"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1148"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 20:15:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalPages\": 1,\n    \"totalRecords\": 5,\n    \"items\": [\n        {\n            \"id\": \"7eaadf2e-ada5-4d97-81e4-0924329662ca\",\n            \"personId\": \"beaf5232-ce17-49c8-91dc-381d27fe67ca\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"luis@gmail.com\",\n            \"name\": \"Luis\",\n            \"lastName\": \"González \",\n            \"phone\": \"3126547891\",\n            \"cardId\": \"123456782\"\n        },\n        {\n            \"id\": \"3e752517-219b-4f14-9ce1-8f03022c08ec\",\n            \"personId\": \"5f37004b-5ba4-4626-bf70-4472e3abe64e\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"juan@gmail.com\",\n            \"name\": \"Juan\",\n            \"lastName\": \"Parra\",\n            \"phone\": \"3126547891\",\n            \"cardId\": \"123456781\"\n        },\n        {\n            \"id\": \"da598437-1d92-4240-8f76-b68c74f790f2\",\n            \"personId\": \"db326a96-d4d6-4209-ab5d-5bcc3573f67a\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"fercho@gmail.com\",\n            \"name\": \"Fernando\",\n            \"lastName\": \"Gutierrez \",\n            \"phone\": \"3126547891\",\n            \"cardId\": \"123456783\"\n        },\n        {\n            \"id\": \"bb2b7335-56d1-4ea5-9afb-df7da7702528\",\n            \"personId\": \"d311211d-79f6-4e13-ba6a-92c57333e24c\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"jimena@gmail.com\",\n            \"name\": \"Lucia\",\n            \"lastName\": \"Jiménez \",\n            \"phone\": \"3214567896\",\n            \"cardId\": \"987456321\"\n        },\n        {\n            \"id\": \"88270233-20ad-45e7-ba3c-dd42be4259bb\",\n            \"personId\": \"570d6954-f6c2-41ed-b56a-e9cba38ad802\",\n            \"rol\": \"Estudiante\",\n            \"email\": \"carlos@gmail.com\",\n            \"name\": \"Carlos\",\n            \"lastName\": \"Martinez\",\n            \"phone\": \"3214569874\",\n            \"cardId\": \"123456784\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      message: {\r",
+									"        type: \"string\"\r",
+									"      }\r",
+									"    },\r",
+									"    required: [\"message\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "LastName",
+									"value": "Gutiérrez ",
+									"type": "text"
+								},
+								{
+									"key": "CardId",
+									"value": "987456322",
+									"type": "text"
+								},
+								{
+									"key": "Phone",
+									"value": "3214567896",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "jimena@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "12345678jD",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/Student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Student"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear estudiante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Name",
+											"value": "Lucia",
+											"type": "text"
+										},
+										{
+											"key": "LastName",
+											"value": "Jiménez ",
+											"type": "text"
+										},
+										{
+											"key": "CardId",
+											"value": "987456321",
+											"type": "text"
+										},
+										{
+											"key": "Phone",
+											"value": "3214567896",
+											"type": "text"
+										},
+										{
+											"key": "Email",
+											"value": "jimena@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "Password",
+											"value": "12345678jD",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/Student",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 19:58:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Estudiante creado correctamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Editar estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"pm.test(\"Check if response has format JSON\", function() {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Check if json has an access key\", function() {\r",
+									"    pm.response.to.have.jsonBody(\"token\");\r",
+									"    var json = JSON.parse(responseBody);\r",
+									"    pm.environment.set(\"TOKEN\", `${json.token}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Carlos",
+									"type": "text"
+								},
+								{
+									"key": "LastName",
+									"value": "Martinez",
+									"type": "text"
+								},
+								{
+									"key": "CardId",
+									"value": "123456784",
+									"type": "text"
+								},
+								{
+									"key": "Phone",
+									"value": "3214569874",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "carlos@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "12345678jD",
+									"type": "text"
+								},
+								{
+									"key": "UserId",
+									"value": "88270233-20ad-45e7-ba3c-dd42be4259bb",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/Student/edit/7ae7ad37-a5d0-4e49-b6d9-105cc310ab19",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Student",
+								"edit",
+								"7ae7ad37-a5d0-4e49-b6d9-105cc310ab19"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Editar estudiante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Name",
+											"value": "Carlos",
+											"type": "text"
+										},
+										{
+											"key": "LastName",
+											"value": "Martinez",
+											"type": "text"
+										},
+										{
+											"key": "CardId",
+											"value": "123456784",
+											"type": "text"
+										},
+										{
+											"key": "Phone",
+											"value": "3214569874",
+											"type": "text"
+										},
+										{
+											"key": "Email",
+											"value": "carlos@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "Password",
+											"value": "12345678jD",
+											"type": "text"
+										},
+										{
+											"key": "UserId",
+											"value": "88270233-20ad-45e7-ba3c-dd42be4259bb",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/Student/edit/88270233-20ad-45e7-ba3c-dd42be4259bb",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Student",
+										"edit",
+										"88270233-20ad-45e7-ba3c-dd42be4259bb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 19:31:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Estudiante actualizado correctamente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"pm.test(\"Check if response has format JSON\", function() {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Response schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      message: {\r",
+									"        type: \"string\"\r",
+									"      }\r",
+									"    },\r",
+									"    required: [\"message\"]\r",
+									"  };\r",
+									"\r",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/Student/1a7367f9-4ba4-471f-8b45-c4acf82f2fa7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Student",
+								"1a7367f9-4ba4-471f-8b45-c4acf82f2fa7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Eliminar estudiante",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/Student/1a7367f9-4ba4-471f-8b45-c4acf82f2fa7",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Student",
+										"1a7367f9-4ba4-471f-8b45-c4acf82f2fa7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 19:42:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Estudiante eliminado correctamente\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "verificar jwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData).to.include.all.keys('name', 'lastName', 'phone', 'email', 'personId', 'token');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Email is in a valid format\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, \"Email should be in a valid format\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Token is a non-empty string\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData.token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Token should not be empty\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      name: { type: \"string\" },\r",
+									"      lastName: { type: \"string\" },\r",
+									"      phone: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      personId: { type: \"string\" },\r",
+									"      token: { type: \"string\", minLength: 1 },\r",
+									"    },\r",
+									"    required: [\"name\", \"lastName\", \"phone\", \"email\", \"personId\", \"token\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/login/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "verificar jwt",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/login/token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "616"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 19:52:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Jose\",\n    \"lastName\": \"Palomino\",\n    \"phone\": \"3152560926\",\n    \"email\": \"jpalomino31@gmail.com\",\n    \"personId\": \"841EBA0A-0123-4F02-947C-B330720147B2\",\n    \"token\": \"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9zZSIsImxhc3ROYW1lIjoiUGFsb21pbm8iLCJlbWFpbCI6ImpwYWxvbWlubzMxQGdtYWlsLmNvbSIsInBob25lIjoiMzE1MjU2MDkyNiIsInBlcnNvbklkIjoiODQxRUJBMEEtMDEyMy00RjAyLTk0N0MtQjMzMDcyMDE0N0IyIiwiZXhwIjoxNzA2MzAyMzcxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiaHR0cDovL2xvY2FsaG9zdDo1MDAwIl19.LxBfklw82p5PyPoXhjFBwNz_7MUlbpSAJuou8bbxnK4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"});\r",
+									"pm.test(\"Check if response has format JSON\", function() {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Check if json has an access key\", function() {\r",
+									"    pm.response.to.have.jsonBody(\"token\");\r",
+									"    var json = JSON.parse(responseBody);\r",
+									"    pm.environment.set(\"TOKEN\", `${json.token}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"jpalomino31@gmail.com\",\r\n    \"password\":\"123456jD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"jpalomino31@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "582"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Dec 2023 22:42:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Jose\",\n    \"lastName\": \"Palomino\",\n    \"phone\": \"3152560926\",\n    \"email\": \"jpalomino31@gmail.com\",\n    \"personId\": \"E14AF32B-F188-430A-9D1F-F6E0625798A6\",\n    \"token\": \"eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9zZSIsImxhc3ROYW1lIjoiUGFsb21pbm8iLCJlbWFpbCI6ImpwYWxvbWlubzMxQGdtYWlsLmNvbSIsInBob25lIjoiMzE1MjU2MDkyNiIsInBlcnNvbklkIjoiRTE0QUYzMkItRjE4OC00MzBBLTlEMUYtRjZFMDYyNTc5OEE2IiwiZXhwIjoxNzAzNTQ3Nzc4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAifQ.nEYj-6MOiIBUD70WMU0dOAoB9hfe_pQhHzRPNB6M8yA\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

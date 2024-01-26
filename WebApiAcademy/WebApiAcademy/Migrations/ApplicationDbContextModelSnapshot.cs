@@ -22,6 +22,31 @@ namespace WebApiAcademy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("WebApiAcademy.Models.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<int>("Credits")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("WebApiAcademy.Models.Person", b =>
                 {
                     b.Property<Guid>("Id")
@@ -56,7 +81,7 @@ namespace WebApiAcademy.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("841eba0a-0123-4f02-947c-b330720147b2"),
+                            Id = new Guid("c9643a50-139a-4718-b89a-e09b5a8afd2f"),
                             CardId = "123456789",
                             LastName = "Palomino",
                             Name = "Jose",
@@ -83,19 +108,44 @@ namespace WebApiAcademy.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5a7453d3-c21c-4a9f-b3a4-6915abc157ad"),
+                            Id = new Guid("82967d10-f257-4842-bf38-194d24c4d467"),
                             Name = "Administrador"
                         },
                         new
                         {
-                            Id = new Guid("329cff5f-8e1a-4af1-8109-539626093034"),
+                            Id = new Guid("6d7b5765-fb27-4475-bcc0-ec3d3a6bc023"),
                             Name = "Estudiante"
                         },
                         new
                         {
-                            Id = new Guid("cd3c1d41-98c1-4873-b855-4c201bec0c92"),
+                            Id = new Guid("62ecdba6-93e2-4b36-be2c-334bba44e16f"),
                             Name = "Profesor"
                         });
+                });
+
+            modelBuilder.Entity("WebApiAcademy.Models.Score", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("ScoreValue")
+                        .HasColumnType("real");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Scores");
                 });
 
             modelBuilder.Entity("WebApiAcademy.Models.User", b =>
@@ -132,12 +182,31 @@ namespace WebApiAcademy.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3e3e7903-989c-40e6-baa0-00db6c9a9a79"),
+                            Id = new Guid("840d337d-57e2-451b-8815-1f586b518455"),
                             Email = "jpalomino31@gmail.com",
                             Password = "5648af1d2023b12f45282fd736f4ddf147685ef012318c0f98d70de70b5f3b3a",
-                            PersonId = new Guid("841eba0a-0123-4f02-947c-b330720147b2"),
-                            RolId = new Guid("5a7453d3-c21c-4a9f-b3a4-6915abc157ad")
+                            PersonId = new Guid("c9643a50-139a-4718-b89a-e09b5a8afd2f"),
+                            RolId = new Guid("82967d10-f257-4842-bf38-194d24c4d467")
                         });
+                });
+
+            modelBuilder.Entity("WebApiAcademy.Models.Score", b =>
+                {
+                    b.HasOne("WebApiAcademy.Models.Course", "Course")
+                        .WithMany("Scores")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApiAcademy.Models.Person", "Student")
+                        .WithMany("Scores")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("WebApiAcademy.Models.User", b =>
@@ -159,8 +228,15 @@ namespace WebApiAcademy.Migrations
                     b.Navigation("Rol");
                 });
 
+            modelBuilder.Entity("WebApiAcademy.Models.Course", b =>
+                {
+                    b.Navigation("Scores");
+                });
+
             modelBuilder.Entity("WebApiAcademy.Models.Person", b =>
                 {
+                    b.Navigation("Scores");
+
                     b.Navigation("Users");
                 });
 

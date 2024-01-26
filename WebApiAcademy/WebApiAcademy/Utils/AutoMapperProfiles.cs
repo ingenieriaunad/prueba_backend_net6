@@ -9,7 +9,7 @@ namespace WebApiAcademy.Utils
         {
             CreateMap<Student, User>().ReverseMap()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-            .ForMember(dest => dest.RolId, opt => opt.MapFrom(src => src.RolId))
+            .ForMember(dest => dest.Rol, opt => opt.MapFrom(src => src.Rol.Name))
             .ForMember(dest => dest.PersonId, opt => opt.MapFrom(src => src.PersonId))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Person.Name))

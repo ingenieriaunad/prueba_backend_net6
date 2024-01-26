@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApiAcademy.DTOs;
 using WebApiAcademy.Models;
 using WebApiAcademy.Services;
 
@@ -99,11 +98,40 @@ namespace WebApiAcademy
                     .HasForeignKey(u => u.RolId);
                 user.HasData(newUser);
             });
+            modelBuilder.Entity<Course>(course =>
+            {
+                course.Property(c => c.Id)
+                    .HasDefaultValueSql("NEWID()");
+                course.Property(c => c.Name)
+                    .HasMaxLength(50)
+                    .IsRequired();
+                course.Property(c => c.Description)
+                    .HasMaxLength(200)
+                    .IsRequired();
+                course.Property(c => c.Credits)
+                    .IsRequired();
+            });
+            //tabla Score
+            modelBuilder.Entity<Score>(score =>
+            {
+                score.Property(s => s.Id)
+                    .HasDefaultValueSql("NEWID()");
+                score.Property(s => s.ScoreValue)
+                    .IsRequired();
+                score.HasOne(s => s.Course)
+                    .WithMany(c => c.Scores)
+                    .HasForeignKey(s => s.CourseId);
+                score.HasOne(s => s.Student)
+                    .WithMany(p => p.Scores)
+                    .HasForeignKey(s => s.StudentId);
+            });
 
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Rol> Rols { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Score> Scores { get; set; }
 
     }
 }

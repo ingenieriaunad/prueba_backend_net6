@@ -22,8 +22,9 @@ namespace WebApiAcademy.Services
             {
                 queryable = queryable.Where(x => x.Person.Name.Contains(pagination.Search) || x.Person.CardId.Contains(pagination.Search));
             }
-            queryable = queryable.Include(x => x.Person)
-                                 .Where(x => x.Person.Users
+            queryable = queryable.Include(x => x.Rol)
+                                 .Include(x => x.Person);
+            queryable = queryable.Where(x => x.Person.Users
                                  .Any(x => x.Rol.Name == "Estudiante"));
             var students     = await queryable.GetPaged(pagination).ToListAsync();
             var totalRecords = await queryable.CountAsync();
